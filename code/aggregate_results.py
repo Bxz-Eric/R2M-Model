@@ -23,8 +23,23 @@ import numpy as np
 import pandas as pd
 
 SHARED = Path('/mnt/shared-workspace/r2m')
-FIGDIR = Path('/mnt/results/r2m/figures')
-TABDIR = Path('/mnt/results/r2m/tables')
+import os
+def _writable(d):
+    try:
+        p = Path(d) / '.wtest'
+        p.write_text('x')
+        p.unlink()
+        return True
+    except Exception:
+        return False
+if _writable('/mnt/results/r2m/tables'):
+    FIGDIR = Path('/mnt/results/r2m/figures')
+    TABDIR = Path('/mnt/results/r2m/tables')
+else:
+    FIGDIR = Path('/workspace/r2m/out_figures')
+    TABDIR = Path('/workspace/r2m/out_tables')
+FIGDIR.mkdir(parents=True, exist_ok=True)
+TABDIR.mkdir(parents=True, exist_ok=True)
 
 PAL = {'R2M (main)': '#0279EE', 'static NT prior': '#75A025', 'no CLIP': '#FF9400',
        'no cancer emb': '#FD9BED', 'no expert heads': '#7E57C2'}
@@ -67,10 +82,11 @@ def main():
                          'gene_cor_top500': float(np.mean([d['gene_cor_top500'] for d in sp])),
                          'sample_cor_mean': float(np.mean([d['sample_cor_mean'] for d in sp])),
                          'note': f'n={len(sp)} seeds (43,44), 80 epochs'})
-    for t, name in [('abl_noclip_np', 'no CLIP'), ('abl_nocancer_np', 'no cancer emb'),
+    for t, name in [('abl_noclip_np2', 'no CLIP'), ('abl_noclip_np', 'no CLIP'),
+                    ('abl_nocancer_np', 'no cancer emb'),
                     ('abl_noexpert_np', 'no expert heads')]:
         d = load_summary(t)
-        if d:
+        if d and name not in [r['variant'] for r in abl_rows]:
             abl_rows.append({'variant': name, 'gene_cor_all': d['gene_cor_all'],
                              'gene_cor_top500': d['gene_cor_top500'],
                              'sample_cor_mean': d['sample_cor_mean'], 'note': 'seed 42'})
@@ -119,7 +135,7 @@ def main():
     print('\nLOCO:\n', loco.to_string())
 
     # ---------- Fig 6 ----------
-    pc = pd.read_csv(TABDIR / 'table3_per_cancer.csv').sort_values('sample_cor', ascending=False)
+    pc = pd.read_csv('/mnt/results/r2m/tables/table3_per_cancer.csv').sort_values('sample_cor', ascending=False)
     loco_np = loco[loco['base'] == 'learnable emb'] if len(loco) else loco
     n_panels = 2 if len(loco_np) else 1
     fig, axes = plt.subplots(1, n_panels, figsize=(6.4 * n_panels, 3.8),
