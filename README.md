@@ -102,7 +102,7 @@ R2M-Model/
 
 If you use R2M in your research, please cite:
 
-> Bao X, Tian N. R2M: cross-modal translation of pan-cancer DNA methylation landscapes from transcriptomes via contrastive sample encoding and learnable gene representations. *Translational Cancer Research* (under review), 2026.
+> Bao X, Tian N. R2M: cross-modal translation of pan-cancer DNA methylation landscapes from transcriptomes via contrastive sample encoding and learnable gene representations. *Undetermined journal* , 2026.
 
 ## License
 
