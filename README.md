@@ -99,10 +99,7 @@ R2M-Model/
 - **External meningioma cohorts**: GEO accessions [GSE189672](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189672)/[GSE189673](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189673) and [GSE183653](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183653)/[GSE183656](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE183656).
 
 ## Citation
-
-If you use R2M in your research, please cite:
-
-> Bao X, Tian N. R2M: cross-modal translation of pan-cancer DNA methylation landscapes from transcriptomes via contrastive sample encoding and learnable gene representations. *Undetermined journal* , 2026.
+Not available for now.
 
 ## License
 
@@ -110,5 +107,4 @@ This project is released under the [MIT License](LICENSE).
 
 ## Contact
 
-Nan Tian (corresponding author): 20111003@zcmu.edu.cn
-College of Life Science, Zhejiang Chinese Medical University, Hangzhou, China
+Xiaozhang Bao(Not available for now).
