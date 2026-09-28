@@ -4,7 +4,7 @@
 
 R2M is a deep-learning model that predicts genome-wide, gene-level DNA methylation (beta values for 9,835 genes) from RNA-seq expression across 32 TCGA cancer types. It combines learnable gene identity embeddings, a cancer-type embedding, a CLIP-style contrastively trained sample encoder, and a FiLM-conditioned bilinear global decoder.
 
-> **Manuscript:** "R2M: cross-modal translation of pan-cancer DNA methylation landscapes from transcriptomes via contrastive sample encoding and learnable gene representations" — *under review*. See [Citation](#citation).
+> **Manuscript:** Not available for now.
 
 ## Key performance (held-out TCGA test set, n = 1,364)
 
